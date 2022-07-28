@@ -1,5 +1,7 @@
-import React,{useState}  from 'react'
+import React,{useState}  from 'react';
+import Actorsgrid from '../Actors/Actorsgrid';
 import Mainpage from '../Components/Mainpage'
+import Showsgrid from '../Shows/Showsgrid';
 
 function Home  ()  {
 const [input, setInput]=useState('');
@@ -21,7 +23,6 @@ const onSearch=()=>{
     if(searchOptions==="person"){
         fetch(`https://api.tvmaze.com/search/people?q=${input}`).then(r =>r.json()).then(result =>{
         setResults(result);
-        console.log(result);
     })
 }
 }
@@ -38,7 +39,7 @@ function renderResults(){
         return <div>No Result found</div>
     }
     if(results && results.length>0)
-    return results[0].shows?results.map(item=> (<div key={item.shows.id}>{item.show.name} </div>)):results.map(item=> (<div key={item.person.id}>{item.person.name} </div>))
+    return  results[0].show?<Showsgrid data={results}/>:<Actorsgrid data={results}/>
     return null;
 }
   return (
