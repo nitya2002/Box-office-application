@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyledActorCard } from './Actorsshow.styled';
 
+
 const Actorsshow = function({ image, name, gender, country, birthday, deathday }){
     return (
       <StyledActorCard>

@@ -1,10 +1,13 @@
 import React,{useState}  from 'react';
 import Actorsgrid from '../Actors/Actorsgrid';
 import Mainpage from '../Components/Mainpage'
+import CustomRadio from '../CustomRadio';
+import { useLastQuery } from '../misc/Custom-hook';
 import Showsgrid from '../Shows/Showsgrid';
+import { RadioInputsWrapper, SearchButtonWrapper, SearchInput } from './Home.styled';
 
 function Home  ()  {
-const [input, setInput]=useState('');
+const [input, setInput]=useLastQuery();
 const [results,setResults]=useState(null);
 const [searchOptions,setsearch]=useState('shows');
 const onChanget  =(ev)=>{
@@ -17,7 +20,7 @@ const onSearch=()=>{
     if(searchOptions==="shows"){
     fetch(`https://api.tvmaze.com/search/shows?q=${input}`).then(r =>r.json()).then(result =>{
         setResults(result);
-        console.log(result);
+       
     })
 }
     if(searchOptions==="person"){
@@ -44,16 +47,23 @@ function renderResults(){
 }
   return (
     <Mainpage>
-        <input type='text' onChange={onChanget} value={input} onKeyDown={keyDown}/><br/>
-        <label htmlFor='search-shows'>
-        Shows
-         <input id="search-shows" type="radio" value='shows' checked={ischecked} onChange={updatesearch}/>
-        </label>
-        <label htmlFor='search-actors'>
-            Actors
-            <input id='search-actors' type="radio" checked={!ischecked} value='person' onChange={updatesearch}/>
-        </label><br/>
+        <SearchInput type='text' onChange={onChanget} value={input} onKeyDown={keyDown}/><br/>
+
+        <RadioInputsWrapper>
+        <div>
+            <CustomRadio
+            label='Shows'
+            id="search-shows"  value='shows' checked={ischecked} onChange={updatesearch}/>
+        </div>
+        <div>
+        <CustomRadio
+            label='Actors'
+            id='search-actors'  checked={!ischecked} value='person' onChange={updatesearch}/>
+        </div>
+        </RadioInputsWrapper>
+        <SearchButtonWrapper>
         <button type="submit" onClick={onSearch}>Search</button>
+        </SearchButtonWrapper>
         {renderResults()}
     </Mainpage>
   )
