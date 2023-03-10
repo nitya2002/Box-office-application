@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { DetailsWrapper } from './Details.styled';
 
-const Details =function ({ status, premiered, network })  {
+const Details =function({ status, premiered, network })  {
     return (
       <DetailsWrapper>
         <p>
@@ -14,4 +14,4 @@ const Details =function ({ status, premiered, network })  {
     );
   };
 
-export default Details
+export default Details;
