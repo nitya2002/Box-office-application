@@ -1,39 +1,52 @@
-import React,{useState,useEffect} from 'react'
-import Mainpage from '../Components/Mainpage'
-import { useShows } from '../misc/Custom-hook'
-import Showsgrid from '../Shows/Showsgrid';
+/* eslint-disable array-callback-return */
+/* eslint-disable dot-notation */
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react';
+import { apiGet } from '../misc/config';
+import ShowGrid from '../components/show/ShowGrid';
+import MainPageLayout from '../components/MainPageLayout';
+import { useShows } from '../misc/custom-hooks';
 
-function Starred  ()  {
-  const [starred]=useShows();
-  
-  const[shows,setShows]=useState(null);
-  const [isLoading,setLoading]=useState(true);
-  const [error,seterror]=useState(null);
+const Starred = ({ theme, toggle }) => {
+    const [starred] = useShows();
+    const [shows, setShows] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    useEffect(() => {
+        if (starred && starred.length > 0) {
+            const promises = starred.map(id => apiGet(`/shows/${id}`));
+            Promise.all(promises)
+                .then(apiData => apiData.map(show => ({ show })))
+                .then(result => {
+                    setShows(result);
+                    setIsLoading(false);
+                })
+                .catch(err => {
+                    setError(err.message);
+                    setIsLoading(false);
+                });
+        } else {
+            setIsLoading(false);
+        }
+    }, [starred]);
+    return (
+        <div>
+            <MainPageLayout theme={theme} toggle={toggle}>
+                {isLoading && (
+                    <div className="loader">Shows are still loading</div>
+                )}
+                {error && (
+                    <div className="loader">Error occured ( {error} )</div>
+                )}
+                {!isLoading && !shows && (
+                    <div className="loader">No shows are starred</div>
+                )}
+                {!isLoading && shows && !error && (
+                    <ShowGrid data={shows} theme={theme} />
+                )}
+            </MainPageLayout>
+        </div>
+    );
+};
 
-  useEffect(()=>{
-    if(starred &&starred.length>0){
-      const promises=starred.map(showId=> fetch(`https://api.tvmaze.com/shows/${showId}`).then(r =>r.json()));
-      Promise.all(promises).then(apiData=>apiData.map(show=>({show})))
-      .then(result=>{
-        setShows(result);
-        setLoading(false);
-      })
-      .catch(err=>{
-        seterror(err.message);
-        setLoading(false);
-      })
-    }
-  },[starred])
-
-
-  return (
-    <Mainpage>
-      {isLoading&&<div>Shows are still Loading</div>}
-      {error&&<div>Error occured {error}</div>}
-      {!isLoading&&!shows&&<div>No shows</div>}
-      {!isLoading&&!error&&shows&&<Showsgrid data={shows}/>}
-    </Mainpage>
-  )
-}
-
-export default Starred
+export default Starred;

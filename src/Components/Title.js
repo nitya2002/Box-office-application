@@ -1,13 +1,13 @@
-import React from 'react'
-import { TitleWrapper } from './Titile.styled'
+import React, {memo} from 'react'
+import { TitleWrapper } from './Title.styled'
 
-function Title  ({title,subtitle}) {
-  return (
-    <TitleWrapper>
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-    </TitleWrapper>
-  )
+const Title = ({ title, subtitle, theme }) => {
+    return (
+        <TitleWrapper>
+            <h1 className={theme}>{title}</h1>
+            <p className={theme}>{subtitle}</p>
+        </TitleWrapper>
+    );
 }
 
-export default Title
+export default memo(Title)
