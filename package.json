@@ -28,7 +28,6 @@
     "format": "prettier --write src/**/*.js",
     "format:lint": "npm run format && npm run lint",
     "clear": "rimraf build"
-    
   },
   "eslintConfig": {
     "extends": [
