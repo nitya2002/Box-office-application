@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/box-office-app/static/css/main.407e185e.chunk.css",
-    "main.js": "/box-office-app/static/js/main.8faafd14.chunk.js",
-    "main.js.map": "/box-office-app/static/js/main.8faafd14.chunk.js.map",
-    "runtime-main.js": "/box-office-app/static/js/runtime-main.67f343a4.js",
-    "runtime-main.js.map": "/box-office-app/static/js/runtime-main.67f343a4.js.map",
-    "static/js/2.be49dacf.chunk.js": "/box-office-app/static/js/2.be49dacf.chunk.js",
-    "static/js/2.be49dacf.chunk.js.map": "/box-office-app/static/js/2.be49dacf.chunk.js.map",
-    "static/js/3.e83cdfa9.chunk.js": "/box-office-app/static/js/3.e83cdfa9.chunk.js",
-    "static/js/3.e83cdfa9.chunk.js.map": "/box-office-app/static/js/3.e83cdfa9.chunk.js.map",
-    "index.html": "/box-office-app/index.html",
-    "service-worker.js": "/box-office-app/service-worker.js",
-    "service-worker.js.map": "/box-office-app/service-worker.js.map",
-    "static/css/main.407e185e.chunk.css.map": "/box-office-app/static/css/main.407e185e.chunk.css.map",
-    "static/js/2.be49dacf.chunk.js.LICENSE.txt": "/box-office-app/static/js/2.be49dacf.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/box-office-app/static/media/background.8d3e0688.png"
+    "main.css": "/Box-Office-app/static/css/main.cbe791d2.chunk.css",
+    "main.js": "/Box-Office-app/static/js/main.d807b749.chunk.js",
+    "main.js.map": "/Box-Office-app/static/js/main.d807b749.chunk.js.map",
+    "runtime-main.js": "/Box-Office-app/static/js/runtime-main.587d111f.js",
+    "runtime-main.js.map": "/Box-Office-app/static/js/runtime-main.587d111f.js.map",
+    "static/js/2.ec7be796.chunk.js": "/Box-Office-app/static/js/2.ec7be796.chunk.js",
+    "static/js/2.ec7be796.chunk.js.map": "/Box-Office-app/static/js/2.ec7be796.chunk.js.map",
+    "static/js/3.7263c439.chunk.js": "/Box-Office-app/static/js/3.7263c439.chunk.js",
+    "static/js/3.7263c439.chunk.js.map": "/Box-Office-app/static/js/3.7263c439.chunk.js.map",
+    "index.html": "/Box-Office-app/index.html",
+    "service-worker.js": "/Box-Office-app/service-worker.js",
+    "service-worker.js.LICENSE.txt": "/Box-Office-app/service-worker.js.LICENSE.txt",
+    "service-worker.js.map": "/Box-Office-app/service-worker.js.map",
+    "static/css/main.cbe791d2.chunk.css.map": "/Box-Office-app/static/css/main.cbe791d2.chunk.css.map",
+    "static/js/2.ec7be796.chunk.js.LICENSE.txt": "/Box-Office-app/static/js/2.ec7be796.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/Box-Office-app/static/media/background.8d3e0688.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.67f343a4.js",
-    "static/js/2.be49dacf.chunk.js",
-    "static/css/main.407e185e.chunk.css",
-    "static/js/main.8faafd14.chunk.js"
+    "static/js/runtime-main.587d111f.js",
+    "static/js/2.ec7be796.chunk.js",
+    "static/css/main.cbe791d2.chunk.css",
+    "static/js/main.d807b749.chunk.js"
   ]
 }
